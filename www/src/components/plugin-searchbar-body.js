@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import {
   InstantSearch,
+  Configure,
   SearchBox,
   Stats,
   RefinementList,
@@ -201,6 +202,7 @@ class Search extends Component {
           <SearchBox translations={{ placeholder: `Search Gatsby Library` }} />
 
           <div css={{ display: `none` }}>
+            <Configure analyticsTags={[`gatsby-plugins`]} />
             <RefinementList
               attributeName="keywords"
               defaultRefinement={[`gatsby-component`, `gatsby-plugin`]}
