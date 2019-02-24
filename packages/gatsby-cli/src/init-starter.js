@@ -61,6 +61,10 @@ const createInitialGitCommit = async (rootPath, starterUrl) => {
 
 // Executes `npm install` or `yarn install` in rootPath.
 const install = async rootPath => {
+  if (shouldUseYarn()) {
+    await fs.remove(sysPath.join(rootPath, `package-lock.json`))
+  }
+
   const prevDir = process.cwd()
 
   report.info(`Installing packages...`)
